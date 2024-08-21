@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a318cf9a1b562a3eeae807438c26bff9",
+    "content-hash": "48d1432c4d0b5e5d77c7c7ffbf4ef3a5",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -9990,6 +9990,69 @@
             "time": "2024-04-05T04:39:01+00:00"
         },
         {
+            "name": "reliese/laravel",
+            "version": "v1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reliese/laravel.git",
+                "reference": "0ea3640794d2563d4b37971db6f936b0cbad1487"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reliese/laravel/zipball/0ea3640794d2563d4b37971db6f936b0cbad1487",
+                "reference": "0ea3640794d2563d4b37971db6f936b0cbad1487",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": ">=2.5",
+                "illuminate/console": ">=5.1",
+                "illuminate/contracts": ">=5.1",
+                "illuminate/database": ">=5.1",
+                "illuminate/filesystem": ">=5.1",
+                "illuminate/support": ">=5.1",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": ">=1.4",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Reliese\\Coders\\CodersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Reliese\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Llanos",
+                    "email": "cristianllanos@outlook.com"
+                }
+            ],
+            "description": "Reliese Components for Laravel Framework code generation.",
+            "homepage": "http://cristianllanos.com",
+            "keywords": [
+                "laravel",
+                "reliese"
+            ],
+            "support": {
+                "issues": "https://github.com/reliese/laravel/issues",
+                "source": "https://github.com/reliese/laravel"
+            },
+            "time": "2024-08-15T09:32:48+00:00"
+        },
+        {
             "name": "sebastian/cli-parser",
             "version": "2.0.1",
             "source": {
@@ -11034,6 +11097,67 @@
                 "source": "https://github.com/ta-tikoma/phpunit-architecture-test/tree/0.8.4"
             },
             "time": "2024-01-05T14:10:56+00:00"
+        },
+        {
+            "name": "thedoctor0/laravel-factory-generator",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheDoctor0/laravel-factory-generator.git",
+                "reference": "fed9260ab27522e3630bc379a14786b1880fa76d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheDoctor0/laravel-factory-generator/zipball/fed9260ab27522e3630bc379a14786b1880fa76d",
+                "reference": "fed9260ab27522e3630bc379a14786b1880fa76d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^10.0|^11.0",
+                "illuminate/filesystem": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TheDoctor0\\LaravelFactoryGenerator\\FactoryGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TheDoctor0\\LaravelFactoryGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Automatically generate Laravel factories for your models.",
+            "keywords": [
+                "factories",
+                "factory",
+                "generator",
+                "laravel",
+                "tests"
+            ],
+            "support": {
+                "issues": "https://github.com/TheDoctor0/laravel-factory-generator/issues",
+                "source": "https://github.com/TheDoctor0/laravel-factory-generator/tree/1.4.3"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/thedoctor0",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/thedoctor0",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-05-14T06:51:07+00:00"
         },
         {
             "name": "theseer/tokenizer",
