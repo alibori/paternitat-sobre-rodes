@@ -1,0 +1,24 @@
+name: paternitat-sobre-rodes
+recipe: laravel
+config:
+  php: '8.2'
+  composer_version: '2.2.12'
+  via: apache:2.4
+  webroot: public
+  database: mysql
+  cache: none
+  xdebug: false
+services:
+  database:
+    portforward: 3308
+    creds:
+        database: paternitat_sobre_rodes
+        user: paternitat
+        password: paternitat
+  customDb:
+    type: mysql
+    portforward: 3309
+    creds:
+        database: paternitat_sobre_rodes_testing
+        user: paternitat_testing
+        password: paternitat_testing
