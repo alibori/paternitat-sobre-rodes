@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
+use Database\Factories\PostFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -17,7 +19,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property int $id
  * @property int $user_id
+ * @property int|null $category_id
  * @property string $title
+ * @property string $slug
  * @property string $content
  * @property string $status
  * @property Carbon|null $created_at
@@ -29,15 +33,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Post extends Model
 {
+    /**
+     * @use HasFactory<PostFactory>
+     */
+    use HasFactory;
+
     protected $table = 'posts';
 
     protected $casts = [
-        'user_id' => 'int'
+        'user_id' => 'int',
+        'category_id' => 'int'
     ];
 
     protected $fillable = [
         'user_id',
+        'category_id',
         'title',
+        'slug',
         'content',
         'status'
     ];
@@ -48,5 +60,13 @@ class Post extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return BelongsTo<Category, Post>
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }
