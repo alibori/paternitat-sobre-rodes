@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
@@ -33,13 +34,26 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->afterStateUpdated(function (Forms\Get $get, Forms\Set $set, ?string $state): void {
+                        if ( ! $get('is_slug_changed_manually') && filled($state)) {
+                            $set('slug', Str::slug($state));
+                        }
+                    })
+                    ->reactive()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->afterStateUpdated(function (Forms\Set $set): void {
+                        $set('is_slug_changed_manually', true);
+                    })
+                    ->required()
                     ->maxLength(255)
-                    ->helperText(__('If left empty, the slug will be generated automatically.')),
+                    ->helperText(__('By default, the slug will be generated automatically from the name. If you change it, make sure it is unique.')),
                 Forms\Components\ColorPicker::make('label_color')
                     ->nullable(),
+                Forms\Components\Hidden::make('is_slug_changed_manually')
+                    ->default(false)
+                    ->dehydrated(false),
             ]);
     }
 

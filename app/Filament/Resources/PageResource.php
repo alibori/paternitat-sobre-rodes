@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Enums\PostStatusEnum;
-use App\Filament\Resources\PostResource\Pages;
-use App\Models\Post;
+use App\Enums\PageStatusEnum;
+use App\Filament\Resources\PageResource\Pages;
+use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,33 +14,26 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-class PostResource extends Resource
+class PageResource extends Resource
 {
-    protected static ?string $model = Post::class;
+    protected static ?string $model = Page::class;
 
-    protected static ?string $navigationGroup = 'Blog';
+    protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
 
     public static function getModelLabel(): string
     {
-        return __('Post');
+        return __('Page');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('Posts');
+        return __('Pages');
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->label(__('Author'))
-                    ->relationship('user', 'name')
-                    ->required(),
-                Forms\Components\Select::make('category_id')
-                    ->relationship('category', 'name')
-                    ->nullable(),
                 Forms\Components\TextInput::make('title')
                     ->afterStateUpdated(function (Forms\Get $get, Forms\Set $set, ?string $state): void {
                         if ( ! $get('is_slug_changed_manually') && filled($state)) {
@@ -61,11 +54,8 @@ class PostResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
-                    ->options(PostStatusEnum::class)
+                    ->options(PageStatusEnum::class)
                     ->required(),
-                Forms\Components\Hidden::make('is_slug_changed_manually')
-                    ->default(false)
-                    ->dehydrated(false),
             ]);
     }
 
@@ -73,19 +63,12 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user.name')
-                    ->label(__('Author'))
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('category.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\SelectColumn::make('status')
-                    ->options(PostStatusEnum::class),
+                    ->options(PageStatusEnum::class),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -96,8 +79,7 @@ class PostResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('status')
-                    ->options(PostStatusEnum::class)
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -119,9 +101,9 @@ class PostResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPosts::route('/'),
-            'create' => Pages\CreatePost::route('/create'),
-            'edit' => Pages\EditPost::route('/{record}/edit'),
+            'index' => Pages\ListPages::route('/'),
+            'create' => Pages\CreatePage::route('/create'),
+            'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
     }
 }
