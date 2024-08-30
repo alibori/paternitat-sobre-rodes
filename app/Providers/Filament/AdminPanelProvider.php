@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->path($path)
             ->login()
             ->colors([
-                'primary' => Color::Teal,
+                'primary' => Color::Lime,
             ])
             ->navigationGroups([
                 NavigationGroup::make()

@@ -9,7 +9,8 @@
         "filament/filament": "^3.2",
         "laravel/folio": "^1.1",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "spatie/laravel-cookie-consent": "^3.3"
     },
     "require-dev": {
         "alibori/laravel-logs-cleaner": "^1.0",

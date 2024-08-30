@@ -18658,6 +18658,16 @@ namespace Illuminate\Support {
         {
                         return \Illuminate\Support\Str::ucwords($value);
         }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::boot()
+         * @param mixed $text
+         * @static 
+         */        public static function readDuration(...$text)
+        {
+                        return \Illuminate\Support\Str::readDuration(...$text);
+        }
             }
             /**
      * 

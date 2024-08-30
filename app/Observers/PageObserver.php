@@ -23,10 +23,10 @@ class PageObserver implements ShouldHandleEventsAfterCommit
      */
     public function updated(Page $page): void
     {
+        $this->deletePageBladeFile($page);
+
         if ($page->status === PageStatusEnum::Published->value) {
             $this->createPageBladeFile($page);
-        } else {
-            $this->deletePageBladeFile($page);
         }
     }
 
@@ -67,7 +67,7 @@ class PageObserver implements ShouldHandleEventsAfterCommit
         // Create blade file from the page.blade.stub file in the resources/stubs directory
         $stub = file_get_contents(resource_path('stubs/page.blade.stub'));
 
-        if (!$stub) {
+        if ( ! $stub) {
             return;
         }
 

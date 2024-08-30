@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-pattern {
+    background-image: radial-gradient(#a2e635 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    background-color: #ffffff;
+}
+
+.bg-polygon {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.bg-polygon-fill {
+    width: calc(100% - 10px);
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: calc(50% - 5px);
+    top: 50%;
+    z-index: -1;
+    transform: skew(-15deg) translate(-50%, -50%);
+}
