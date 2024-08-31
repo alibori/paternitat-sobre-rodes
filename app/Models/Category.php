@@ -24,10 +24,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string|null $label_color
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @property Collection|Post[] $posts
- *
  * @package App\Models
+ * @mixin IdeHelperCategory
  */
 class Category extends Model
 {

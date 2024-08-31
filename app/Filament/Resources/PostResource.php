@@ -57,6 +57,7 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->helperText(__('By default, the slug will be generated automatically from the title. If you change it, make sure it is unique.')),
+                Forms\Components\TextInput::make('excerpt'),
                 Forms\Components\RichEditor::make('content')
                     ->required()
                     ->columnSpanFull(),

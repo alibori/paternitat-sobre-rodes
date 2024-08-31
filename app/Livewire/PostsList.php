@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use App\Models\Post;
+use App\Actions\ListPublishedPostsAction;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -21,8 +21,8 @@ class PostsList extends Component
     {
         return view('livewire.posts-list', [
             'posts' => $this->last
-            ? Post::query()->with(['category'])->orderBy('created_at', 'desc')->limit(3)->get()
-            : Post::query()->with(['category'])->orderBy('created_at', 'desc')->paginate(10),
+            ? app(ListPublishedPostsAction::class)->execute(['category'], [], ['created_at' => 'desc'], false, null, 3)
+            : app(ListPublishedPostsAction::class)->execute(['category'], [], ['created_at' => 'desc'])
         ]);
     }
 }

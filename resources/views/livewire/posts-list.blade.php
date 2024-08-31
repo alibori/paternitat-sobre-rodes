@@ -14,7 +14,7 @@
                 {{ $post->category->name }}
             </span>
             <p class="mt-1 text-md text-gray-500 line-clamp-3">
-                {{ $post->content }}
+                {{ $post->excerpt }}
             </p>
             <p class="mt-1">
                 <a class="text-sm text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none focus:decoration-2" href="{{ route('posts.show', $post->slug) }}">

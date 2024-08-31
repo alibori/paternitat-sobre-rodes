@@ -22,7 +22,7 @@
 <!-- ========== HEADER ========== -->
 <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-white border-b border-gray-200">
     <nav
-        class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto">
+        class="relative max-w-7xl w-full flex flex-wrap sm:flex-row sm:justify-between md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto">
         <div class="md:col-span-3">
             <!-- Logo -->
             <a class="flex-none rounded-xl text-2xl inline-block font-logo focus:outline-none focus:opacity-80"
@@ -71,7 +71,7 @@
         <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
         <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
-                <a class="flex-none rounded-xl text-2xl inline-block font-logo focus:outline-none focus:opacity-80"
+                <a class="flex-none rounded-xl text-xl inline-block font-logo focus:outline-none focus:opacity-80"
                    href="{{ route('index') }}" aria-label="Paternitat sobre rodes">
                     Paternitat Sobre Rodes
                 </a>
@@ -83,16 +83,16 @@
             </div>
             <div>
                 <ul>
-                    <li class="mb-1">
-                        <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('about') ? 'underline decoration-lime-400 decoration-8' : '' }}"
+                    <li class="mb-4">
+                        <a class="inline-block text-black text-xl hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('about') ? 'underline decoration-lime-400 decoration-4' : '' }}"
                            href="{{ route('about') }}">{{ __('About me') }}</a>
                     </li>
-                    <li class="mb-1">
-                        <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs(['blog.*', 'posts.*']) ? 'underline decoration-lime-400 decoration-8' : '' }}"
+                    <li class="mb-4">
+                        <a class="inline-block text-black text-xl hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs(['blog.*', 'posts.*']) ? 'underline decoration-lime-400 decoration-4' : '' }}"
                            href="{{ route('blog.index') }}">{{ __('Blog') }}</a>
                     </li>
-                    <li class="mb-1">
-                        <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('contact') ? 'underline decoration-lime-400 decoration-8' : '' }}"
+                    <li class="mb-4">
+                        <a class="inline-block text-black text-xl hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('contact') ? 'underline decoration-lime-400 decoration-4' : '' }}"
                            href="{{ route('contact') }}">{{ __('Contact me') }}</a>
                     </li>
                 </ul>
@@ -110,7 +110,7 @@
 <footer class="mt-auto w-full bg-white border-t border-gray-200">
     <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <!-- Grid -->
-        <div class="sm:flex sm:flex-col md:grid md:grid-cols-1 md:grid-cols-3 items-center gap-5">
+        <div class="sm:flex sm:flex-col sm:justify-center md:grid md:grid-cols-1 md:grid-cols-3 md:items-center gap-5">
             <div class="h-12">
                 <!-- Logo -->
                 <a class="flex-none rounded-xl text-lg inline-block font-logo focus:outline-none focus:opacity-80"

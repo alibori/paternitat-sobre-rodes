@@ -25,8 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @package App\Models
+ * @mixin IdeHelperPage
  */
 
 #[ObservedBy([PageObserver::class])]

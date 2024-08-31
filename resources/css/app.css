@@ -1,4 +1,20 @@
 @tailwind base;
+
+@layer base {
+    h1 {
+        @apply text-5xl;
+    }
+    h2 {
+        @apply text-3xl;
+    }
+    h3 {
+        @apply text-2xl;
+    }
+    body {
+        @apply text-lg;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -23,4 +39,11 @@
     top: 50%;
     z-index: -1;
     transform: skew(-15deg) translate(-50%, -50%);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .bg-polygon-fill {
+        width: calc(100% - 60px);
+    }
 }

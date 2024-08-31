@@ -32,7 +32,8 @@ final class PostFactory extends Factory
             'user_id' => User::inRandomOrder()->first(),
             'category_id' => Category::inRandomOrder()->first(),
             'title' => fake()->sentence,
-            'slug' => fake()->slug,
+            'slug' => fake()->unique()->slug,
+            'excerpt' => fake()->sentence,
             'content' => fake()->text,
             'status' => fake()->randomElement(['draft', 'reviewing', 'published', 'rejected']),
         ];

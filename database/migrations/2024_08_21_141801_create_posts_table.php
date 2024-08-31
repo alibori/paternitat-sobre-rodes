@@ -18,6 +18,7 @@ return new class () extends Migration {
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('excerpt');
             $table->text('content');
             $table->enum('status', ['draft', 'reviewing', 'published', 'rejected'])->default('draft');
             $table->timestamps();
