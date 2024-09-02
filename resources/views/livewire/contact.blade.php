@@ -17,7 +17,14 @@
                     {{ __('Fill in the form') }}
                 </h2>
 
-                <form>
+                @if (session()->has('success'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 mb-5 px-4 py-3 rounded-lg relative" role="alert">
+                        <strong class="font-bold">{{ __('Success!') }}</strong>
+                        <span class="block sm:inline">{{ session('success') }}</span>
+                    </div>
+                @endif
+
+                <form wire:submit="send">
                     <div class="grid gap-4">
                         <!-- Grid -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -25,14 +32,26 @@
                                 <label for="hs-firstname-contacts-1" class="sr-only">{{ __('First Name') }}</label>
                                 <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1"
                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                       placeholder="{{ __('First Name') }}">
+                                       placeholder="{{ __('First Name') }}"
+                                        wire:model="form.name"
+                                >
+
+                                @error('form.name')
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div>
                                 <label for="hs-lastname-contacts-1" class="sr-only">{{ __('Last Name') }}</label>
                                 <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1"
                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                       placeholder="{{ __('Last Name') }}">
+                                       placeholder="{{ __('Last Name') }}"
+                                        wire:model="form.surname"
+                                >
+
+                                @error('form.surname')
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- End Grid -->
@@ -41,14 +60,27 @@
                             <label for="hs-email-contacts-1" class="sr-only">{{ __('Email') }}</label>
                             <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email"
                                    class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                   placeholder="{{ __('Email') }}">
+                                   placeholder="{{ __('Email') }}"
+                                    wire:model="form.email"
+                            >
+
+                            @error('form.email')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
                             <label for="hs-about-contacts-1" class="sr-only">{{ __('Message') }}</label>
                             <textarea id="hs-about-contacts-1" name="hs-about-contacts-1" rows="4"
                                       class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-                                      placeholder="{{ __('Hello!') }}"></textarea>
+                                      placeholder="{{ __('Hello!') }}"
+                                        wire:model="form.message"
+                            >
+                            </textarea>
+
+                            @error('form.message')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <!-- End Grid -->

@@ -11,11 +11,15 @@
 
     "Fill in the form": "Omple el formulari",
     "First Name": "Nom",
-    "Last Name": "Cognom",
+    "Last Name": "Cognoms",
     "Email": "Correu electrònic",
     "Message": "Missatge",
     "Send": "Enviar",
     "I'll get back to you as soon as possible.": "Em posaré en contacte amb tu tan aviat com sigui possible.",
+    "Success!": "Exit!",
+    "Message sent successfully. I will contact you as soon as possible!": "Missatge enviat correctament. Em posaré en contacte amb tu tan aviat com sigui possible!",
+    "Contact Form Submission": "Nou missatge de contacte",
+    "You have received a new contact form submission. Here are the details:": "Has rebut un nou missatge de contacte. Aquí tens els detalls:",
 
     "Mobile menu": "Menú mòbil"
 }

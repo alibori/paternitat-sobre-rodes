@@ -10,4 +10,6 @@ declare(strict_types=1);
 
 return [
     'admin_path' => env('ADMIN_PATH', 'admin'),
+
+    'emails_to' => env('EMAIL_RECEIVER', ''),
 ];
