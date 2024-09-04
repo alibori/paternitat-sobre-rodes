@@ -2,6 +2,7 @@
     "About me": "Sobre mi",
     "Contact me": "Contacta'm",
 
+    "Post": "Entrada",
     "Posts": "Entrades",
     "Last posts": "Últimes entrades",
     "Continue reading": "Continuar llegint",
@@ -21,5 +22,29 @@
     "Contact Form Submission": "Nou missatge de contacte",
     "You have received a new contact form submission. Here are the details:": "Has rebut un nou missatge de contacte. Aquí tens els detalls:",
 
-    "Mobile menu": "Menú mòbil"
+    "Mobile menu": "Menú mòbil",
+
+    "Page": "Pàgina",
+    "Pages": "Pàgines",
+    "Setting": "Paràmetre",
+    "Settings": "Configuració",
+    "Category": "Categoria",
+    "Categories": "Categories",
+    "Key": "Clau",
+    "Value": "Valor",
+    "Author": "Autor",
+    "Title": "Títol",
+    "Slug": "Slug",
+    "By default, the slug will be generated automatically from the title. If you change it, make sure it is unique.": "Per defecte, el slug es generarà automàticament a partir del títol. Si el canvieu, assegureu-vos que sigui únic.",
+    "Excerpt": "Extracte",
+    "Content": "Contingut",
+    "Metadata": "Metadades",
+    "Keywords": "Paraules clau",
+    "Description": "Descripció",
+    "Status": "Estat",
+    "Draft": "Esborrany",
+    "Published": "Publicat",
+    "Reviewing": "Revisant",
+    "Rejected": "Rebutjat",
+    "Comma-separated list of keywords": "Llista de paraules clau separades per comes"
 }

@@ -14,6 +14,7 @@ use Database\Factories\PageFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * Class Page
@@ -45,4 +46,12 @@ class Page extends Model
         'content',
         'status'
     ];
+
+    /**
+     * @return MorphOne<Metadata>
+     */
+    public function metadata(): MorphOne
+    {
+        return $this->morphOne(Metadata::class, 'metadatable');
+    }
 }

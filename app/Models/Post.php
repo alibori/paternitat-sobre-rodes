@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * Class Post
@@ -74,6 +75,14 @@ class Post extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * @return MorphOne<Metadata>
+     */
+    public function metadata(): MorphOne
+    {
+        return $this->morphOne(Metadata::class, 'metadatable');
     }
 
     /*** SCOPES ***/

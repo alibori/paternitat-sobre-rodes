@@ -5,7 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title ?? 'Paternitat sobre rodes' }}</title>
+
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <title>{{ $title ?? \App\Facades\Setting::get('site_name') }}</title>
+    <meta name="description" content="{{ $description ?? \App\Facades\Setting::get('meta_description') ?? '' }}">
+    <meta name="keywords" content="{{ $keywords ?? \App\Facades\Setting::get('meta_keywords') ?? '' }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +31,8 @@
         <div class="order-1 md:col-span-3">
             <!-- Logo -->
             <a class="flex-none rounded-xl text-2xl inline-block font-logo focus:outline-none focus:opacity-80"
-               href="{{ route('index') }}" aria-label="Paternitat sobre rodes">
-                Paternitat Sobre Rodes
+               href="{{ route('index') }}" aria-label="{{ \App\Facades\Setting::get('site_name') }}">
+                {{ \App\Facades\Setting::get('site_name') }}
             </a>
             <!-- End Logo -->
         </div>
@@ -72,8 +77,8 @@
         <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex justify-between mb-8">
                 <a class="flex-none rounded-xl text-xl inline-block font-logo focus:outline-none focus:opacity-80"
-                   href="{{ route('index') }}" aria-label="Paternitat sobre rodes">
-                    Paternitat Sobre Rodes
+                   href="{{ route('index') }}" aria-label="{{ \App\Facades\Setting::get('site_name') }}">
+                    {{ \App\Facades\Setting::get('site_name') }}
                 </a>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,8 +119,8 @@
             <div class="h-12 flex items-center text-center md:text-left">
                 <!-- Logo -->
                 <a class="flex-none rounded-xl text-lg inline-block font-logo focus:outline-none focus:opacity-80"
-                   href="{{ route('index') }}" aria-label="Paternitat sobre rodes">
-                    Paternitat Sobre Rodes
+                   href="{{ route('index') }}" aria-label="{{ \App\Facades\Setting::get('site_name') }}">
+                    {{ \App\Facades\Setting::get('site_name') }}
                 </a>
                 <!-- End Logo -->
             </div>

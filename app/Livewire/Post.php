@@ -18,7 +18,7 @@ class Post extends Component
     public function render(): View|Factory|Application
     {
         /** @var Collection<int,\App\Models\Post> $result */
-        $result = app(ListPublishedPostsAction::class)->execute(['user', 'category'], ['slug' => $this->slug], [], false, null);
+        $result = app(ListPublishedPostsAction::class)->execute(['user', 'category', 'metadata'], ['slug' => $this->slug], [], false, null);
 
         return view('livewire.post', [
             'post' => $result->first(),

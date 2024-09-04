@@ -1,5 +1,13 @@
 <x-slot:title>
-    {{ $post->title }} - {{ config('app.name') }}
+    {{ $post->title }} - {{ \App\Facades\Setting::get('site_name') }}
+</x-slot>
+
+<x-slot:description>
+    {{ $post->metadata?->description }}
+</x-slot>
+
+<x-slot:keywords>
+    {{ $post->metadata?->keywords }}
 </x-slot>
 
 <!-- Blog Article -->

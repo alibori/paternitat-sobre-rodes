@@ -42,6 +42,32 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * Class Metadata
+ *
+ * @property int $id
+ * @property string $metadatable_type
+ * @property int $metadatable_id
+ * @property string|null $keywords
+ * @property string|null $description
+ * @package App\Models
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $metadatable
+ * @method static \Database\Factories\MetadataFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata whereKeywords($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata whereMetadatableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Metadata whereMetadatableType($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperMetadata {}
+}
+
+namespace App\Models{
+/**
  * Class Page
  *
  * @property int $id
@@ -52,6 +78,7 @@ namespace App\Models{
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @package App\Models
+ * @property-read \App\Models\Metadata|null $metadata
  * @method static \Database\Factories\PageFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Page newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Page newQuery()
@@ -86,6 +113,7 @@ namespace App\Models{
  * @property User $user
  * @package App\Models
  * @property-read \App\Models\Category|null $category
+ * @property-read \App\Models\Metadata|null $metadata
  * @method static \Database\Factories\PostFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Post filter(array $input = [], $filter = null)
  * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
@@ -111,6 +139,31 @@ namespace App\Models{
  */
 	#[\AllowDynamicProperties]
 	class IdeHelperPost {}
+}
+
+namespace App\Models{
+/**
+ * Class Setting
+ *
+ * @property int $id
+ * @property string $key
+ * @property string|null $value
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @package App\Models
+ * @method static \Database\Factories\SettingFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereValue($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperSetting {}
 }
 
 namespace App\Models{
