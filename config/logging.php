@@ -129,6 +129,15 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        /*** Custom Log Channels ***/
+        'custom' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/custom/custom.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
     ],
 
 ];

@@ -43,18 +43,13 @@
              aria-labelledby="hs-navbar-hcail-collapse">
             <div
                 class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
-                <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('about') ? 'underline decoration-lime-400 decoration-8' : '' }}"
-                       href="{{ route('about') }}">{{ __('About me') }}</a>
-                </div>
-                <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs(['blog.*', 'posts.*']) ? 'underline decoration-lime-400 decoration-8' : '' }}"
-                       href="{{ route('blog.index') }}">{{ __('Blog') }}</a>
-                </div>
-                <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->routeIs('contact') ? 'underline decoration-lime-400 decoration-8' : '' }}"
-                       href="{{ route('contact') }}">{{ __('Contact me') }}</a>
-                </div>
+
+                @foreach(\App\Facades\Menu::get('Main Menu') as $menu_item)
+                    <div>
+                        <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 {{ request()->is(ltrim($menu_item['url'], '/')) || request()->is(ltrim($menu_item['url'], '/') . '/*') ? 'underline decoration-lime-400 decoration-8' : '' }}"
+                           href="{{ url($menu_item['url']) }}">{{ $menu_item['name'] }}</a>
+                    </div>
+                @endforeach
             </div>
         </div>
         <!-- End Collapse -->

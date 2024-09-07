@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\Data\MenusTableSeeder;
 use Database\Seeders\Data\SettingsTableSeeder;
 use Database\Seeders\Mock\CategoriesTableSeeder;
 use Database\Seeders\Mock\PostsTableSeeder;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SettingsTableSeeder::class,
+            MenusTableSeeder::class
         ]);
 
         // Mock data - only in development
