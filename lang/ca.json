@@ -50,5 +50,13 @@
     "Published": "Publicat",
     "Reviewing": "Revisant",
     "Rejected": "Rebutjat",
-    "Comma-separated list of keywords": "Llista de paraules clau separades per comes"
+    "Comma-separated list of keywords": "Llista de paraules clau separades per comes",
+
+    "Total posts": "Total d'entrades",
+    "Published posts": "Entrades publicades",
+    "Draft posts": "Entrades d'esborrany",
+    "Reviewing posts": "Entrades en revisió",
+
+    "Start date": "Data d'inici",
+    "End date": "Data de fi"
 }
