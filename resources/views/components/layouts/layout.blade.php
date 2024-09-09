@@ -20,6 +20,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    @if(config('paternitat.algolia.enabled'))
+        <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+    @endif
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -65,6 +70,21 @@
         </div>
         <!-- End Hamburger -->
     </nav>
+
+    <!-- Algolia -->
+    @if(config('paternitat.algolia.enabled'))
+        <div class="relative w-full mt-4 mx-4 md:mt-0 md:ml-8 md:mr-8 md:w-[300px] border border-gray-200 rounded-lg">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+            <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+          </span>
+            <input type="search" id="search-input" class="w-full py-2 text-sm rounded-md pl-10 focus:outline-none" placeholder="{{ __('Search') }}..." autocomplete="off">
+        </div>
+    @endif
+    <!-- End Algolia -->
 
     <!-- Mobile menu -->
     <div class="navbar-menu relative z-50 hidden">
@@ -199,4 +219,34 @@
             }
         }
     });
+
+    // Algolia
+    @if(config('paternitat.algolia.enabled'))
+        const client = algoliasearch('{{ config('paternitat.algolia.app_id') }}', '{{ config('paternitat.algolia.secret') }}');
+
+        const index = client.initIndex('posts');
+        autocomplete('#search-input', { hint: false }, [
+            {
+                autofocus:false,
+                source: autocomplete.sources.hits(index, { hitsPerPage: 3 }),
+                displayKey: 'title',
+                templates: {
+                    header: '<div class="aa-dropdown-header border-b border-b-gray-300 p-2 pt-4">{{ __('Results') }}:</div>',
+                    cssClasses: {
+                        root: 'aa-dropdown-menu',
+                        header: 'aa-suggestions-category',
+                        suggestion: 'aa-suggestion',
+                        footer: 'aa-footer'
+                    },
+                    suggestion: function(suggestion) {
+                        return suggestion._highlightResult.title.value;
+                    },
+                    footer: '<div class="aa-dropdown-footer border-t border-t-gray-300 p-2 text-sm">{{ __('Search by') }}<img class="aa-logo w-12 ml-2 inline-block" src="https://www.algolia.com/assets/algolia128x40.png" /></div>'
+                }
+            }
+        ])
+            .on('autocomplete:selected', function(event, suggestion, dataset, context) {
+                window.location = window.location.origin + '/blog/' + suggestion.slug;
+            });
+    @endif
 </script>

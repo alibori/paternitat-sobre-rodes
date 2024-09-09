@@ -47,3 +47,17 @@
         width: calc(100% - 60px);
     }
 }
+
+/* Algolia */
+.algolia-autocomplete {
+    width: 100% !important;
+    @apply pr-2;
+}
+
+.aa-dropdown-menu {
+    @apply w-full min-w-[300px] -my-2 -mx-[1px] bg-white border border-gray-200 border-t-0 rounded-bl-lg rounded-br-lg shadow-lg;
+}
+
+.aa-dropdown-menu .aa-suggestions {
+    @apply p-2 border-b border-gray-300 last-of-type:border-b-0 hover:bg-gray-100 cursor-pointer;
+}

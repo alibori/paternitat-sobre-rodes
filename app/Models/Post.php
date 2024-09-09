@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Laravel\Scout\Searchable;
 
 /**
  * Class Post
@@ -38,11 +39,12 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Post extends Model
 {
     use Filterable;
-
     /**
      * @use HasFactory<PostFactory>
      */
     use HasFactory;
+
+    use Searchable;
 
     protected $table = 'posts';
 
