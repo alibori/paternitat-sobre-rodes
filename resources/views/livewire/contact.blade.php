@@ -24,7 +24,7 @@
                     </div>
                 @endif
 
-                <form wire:submit="send">
+                <form wire:submit.prevent="send">
                     <div class="grid gap-4">
                         <!-- Grid -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -84,6 +84,8 @@
                         </div>
                     </div>
                     <!-- End Grid -->
+
+                    <x-honey recaptcha />
 
                     <div class="mt-4 grid">
                         <button type="submit"

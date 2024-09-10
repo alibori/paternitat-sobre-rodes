@@ -10,17 +10,23 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Lukeraymonddowning\Honey\Traits\WithHoney;
 
 class Contact extends Component
 {
+    use WithHoney;
+
     public ContactForm $form;
 
     public function send(): void
     {
         $this->validate();
 
-        Mail::to(config('paternitat.emails_to'))
-            ->queue(new \App\Mail\ContactForm($this->form->toArray()));
+        if ($this->honeyPasses()) {
+            Mail::to(config('paternitat.emails_to'))
+                ->queue(new \App\Mail\ContactForm($this->form->toArray()));
+        }
+
 
         $this->form->reset();
 

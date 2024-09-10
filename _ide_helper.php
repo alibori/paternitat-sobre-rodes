@@ -19125,6 +19125,105 @@ namespace Livewire {
             }
     }
 
+namespace Lukeraymonddowning\Honey\Facades {
+            /**
+     * 
+     *
+     * @method static setMinimumTimePassed($time) Set the minimum amount of time between a page being loaded and submitted.
+     * @see \Lukeraymonddowning\Honey\Honey
+     */        class Honey {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function isEnabled()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->isEnabled();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function disable()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->disable();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function enable()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->enable();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function check($data)
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->check($data);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function failUsing($function)
+        {
+                        return \Lukeraymonddowning\Honey\Honey::failUsing($function);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function beforeFailing($hook)
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->beforeFailing($hook);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function fail()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->fail();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function runHooks($type)
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->runHooks($type);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function recaptcha()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->recaptcha();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function inputs()
+        {
+                        /** @var \Lukeraymonddowning\Honey\Honey $instance */
+                        return $instance->inputs();
+        }
+            }
+    }
+
 namespace Illuminate\Support {
             /**
      * 
@@ -26168,6 +26267,7 @@ namespace  {
             class EloquentSerialize extends \AnourValar\EloquentSerialize\Facades\EloquentSerializeFacade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class Livewire extends \Livewire\Livewire {}
+            class Honey extends \Lukeraymonddowning\Honey\Facades\Honey {}
     }
 
 
