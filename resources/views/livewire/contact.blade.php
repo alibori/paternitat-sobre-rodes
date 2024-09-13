@@ -9,6 +9,11 @@
 
     <!-- Contact Us -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+
+        <p class="text-lg text-gray-800 mb-5">
+            {{ __('pages.contact.intro') }}
+        </p>
+
         <div class="w-full mx-auto">
 
             <!-- Card -->

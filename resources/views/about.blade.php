@@ -8,6 +8,24 @@
         {{ __('About me') }}
     </h1>
 
+    <!-- About -->
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
 
+        <p class="text-lg text-gray-800 mb-5">
+            {{ __('pages.about.text_1') }}
+        </p>
+
+
+        <p class="text-lg text-gray-800 mb-5">
+            {{ __('pages.about.text_2') }}
+        </p>
+
+
+        <p class="text-lg text-gray-800">
+            {{ __('pages.about.text_3') }}
+        </p>
+
+    </div>
+    <!-- End About -->
 </div>
 </x-layout>
