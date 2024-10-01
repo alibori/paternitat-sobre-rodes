@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -34,5 +36,11 @@ class AppServiceProvider extends ServiceProvider
 
             return (int)max(1, $minutes_to_read);
         });
+
+        if (app()->isProduction()) {
+            Gate::define('viewPulse', function (User $user) {
+                // TODO: Implement viewPulse
+            });
+        }
     }
 }
