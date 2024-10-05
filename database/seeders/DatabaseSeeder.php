@@ -19,11 +19,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         $this->call([
             SettingsTableSeeder::class,
             MenusTableSeeder::class
@@ -31,6 +26,11 @@ class DatabaseSeeder extends Seeder
 
         // Mock data - only in development
         if ( ! app()->isProduction()) {
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+
             $this->call([
                 CategoriesTableSeeder::class,
                 PostsTableSeeder::class,

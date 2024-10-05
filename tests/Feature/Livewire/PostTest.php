@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Enums\PostStatusEnum;
 use Database\Factories\PostFactory;
 use Database\Factories\UserFactory;
 
-test('renders successfully', function () {
+test('renders successfully', function (): void {
     $user = UserFactory::new()->create();
 
     $post = PostFactory::new()->create([
@@ -12,6 +14,6 @@ test('renders successfully', function () {
         'status' => PostStatusEnum::Published->value,
     ]);
 
-    Livewire::test(\App\Livewire\Post::class, ['slug' => $post->slug])
+    Livewire::test(App\Livewire\Post::class, ['slug' => $post->slug])
         ->assertStatus(200);
 });

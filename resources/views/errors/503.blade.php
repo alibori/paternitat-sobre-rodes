@@ -24,16 +24,16 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-<main class="bg-pattern h-screen w-full flex flex-col justify-center align-middle">
+<main class="bg-pattern h-screen w-full flex flex-col justify-center align-middle px-2">
     <!-- Logo -->
-    <a class="w-auto text-8xl inline-block font-logo text-center focus:outline-none focus:opacity-80"
+    <a class="w-auto text-5xl md:text-8xl inline-block font-logo text-center focus:outline-none focus:opacity-80"
        href="{{ route('index') }}" aria-label="{{ \App\Facades\Setting::get('site_name') }}">
         {{ \App\Facades\Setting::get('site_name') }}
     </a>
     <!-- End Logo -->
 
     <!-- Maintenance Message -->
-    <div class="text-center text-3xl mt-12 px-4">
+    <div class="text-center text-2xl md:text-3xl mt-12 px-4">
         {{ __('We are currently performing maintenance. Please check back later.') }}
     </div>
 </main>

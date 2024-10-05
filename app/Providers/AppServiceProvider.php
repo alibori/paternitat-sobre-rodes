@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         if (app()->isProduction()) {
-            Gate::define('viewPulse', function (User $user) {
+            Gate::define('viewPulse', function (User $user): void {
                 // TODO: Implement viewPulse
             });
         }
