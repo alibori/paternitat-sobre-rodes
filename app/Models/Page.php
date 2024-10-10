@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Enums\PageStatusEnum;
 use App\Observers\PageObserver;
 use Carbon\Carbon;
 use Database\Factories\PageFactory;
@@ -45,6 +46,10 @@ class Page extends Model
         'slug',
         'content',
         'status'
+    ];
+
+    protected $casts = [
+        'status' => PageStatusEnum::class,
     ];
 
     /**
