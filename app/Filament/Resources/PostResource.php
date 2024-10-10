@@ -60,8 +60,9 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->helperText(__('By default, the slug will be generated automatically from the title. If you change it, make sure it is unique.')),
-                Forms\Components\TextInput::make('excerpt')
-                    ->label(__('Excerpt')),
+                Forms\Components\Textarea::make('excerpt')
+                    ->label(__('Excerpt'))
+                    ->columnSpanFull(),
                 Forms\Components\Fieldset::make('Metadata')
                     ->label(__('Metadata'))
                     ->relationship('metadata')
