@@ -50,7 +50,8 @@ class Post extends Model
 
     protected $casts = [
         'user_id' => 'int',
-        'category_id' => 'int'
+        'category_id' => 'int',
+        'status' => PostStatusEnum::class,
     ];
 
     protected $fillable = [

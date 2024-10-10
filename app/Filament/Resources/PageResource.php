@@ -87,9 +87,10 @@ class PageResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->label(__('Slug'))
                     ->searchable(),
-                Tables\Columns\SelectColumn::make('status')
+                Tables\Columns\TextColumn::make('status')
                     ->label(__('Status'))
-                    ->options(PageStatusEnum::class),
+                    ->badge()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
