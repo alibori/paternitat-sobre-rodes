@@ -12,9 +12,15 @@
     <meta name="description" content="{{ $description ?? \App\Facades\Setting::get('meta_description') ?? '' }}">
     <meta name="keywords" content="{{ $keywords ?? \App\Facades\Setting::get('meta_keywords') ?? '' }}">
 
-    @if(\App\Facades\Setting::get('gtm_head'))
-        {!! \App\Facades\Setting::get('gtm_head') !!}
-    @endif
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5HKGFPR5');
+    </script>
+    <!-- End Google Tag Manager -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,11 +39,11 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-<!-- ========== GTM ========== -->
-@if(\App\Facades\Setting::get('gtm_body'))
-    {!! \App\Facades\Setting::get('gtm_body') !!}
-@endif
-<!-- ========== END GTM ========== -->
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HKGFPR5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ========== HEADER ========== -->
 <header class="flex flex-wrap justify-between md:justify-start md:flex-nowrap z-50 w-full py-7 bg-white border-b border-gray-200">
