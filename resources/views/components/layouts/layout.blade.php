@@ -12,6 +12,10 @@
     <meta name="description" content="{{ $description ?? \App\Facades\Setting::get('meta_description') ?? '' }}">
     <meta name="keywords" content="{{ $keywords ?? \App\Facades\Setting::get('meta_keywords') ?? '' }}">
 
+    @if(\App\Facades\Setting::get('gtm_head'))
+        {!! \App\Facades\Setting::get('gtm_head') !!}
+    @endif
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -29,6 +33,12 @@
     @vite('resources/js/app.js')
 </head>
 <body>
+<!-- ========== GTM ========== -->
+@if(\App\Facades\Setting::get('gtm_body'))
+    {!! \App\Facades\Setting::get('gtm_body') !!}
+@endif
+<!-- ========== END GTM ========== -->
+
 <!-- ========== HEADER ========== -->
 <header class="flex flex-wrap justify-between md:justify-start md:flex-nowrap z-50 w-full py-7 bg-white border-b border-gray-200">
     <nav
