@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZPXGCSM7T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    @if(app()->isProduction())
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZPXGCSM7T"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'G-QZPXGCSM7T');
-    </script>
+            gtag('config', 'G-QZPXGCSM7T');
+        </script>
+    @endif
     <!-- End Google tag -->
 
     <meta charset="UTF-8">
@@ -142,7 +144,7 @@
     <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <!-- Grid -->
         <div class="flex flex-col justify-center md:grid md:grid-cols-1 md:grid-cols-3 md:items-center gap-5">
-            <div class="h-12 flex items-center text-center md:text-left">
+            <div class="h-12 w-full text-center md:text-left">
                 <!-- Logo -->
                 <a class="flex-none rounded-xl text-lg inline-block font-logo focus:outline-none focus:opacity-80"
                    href="{{ route('index') }}" aria-label="{{ \App\Facades\Setting::get('site_name') }}">
@@ -180,6 +182,7 @@
 
         <div class="text-center mt-8 text-sm text-gray-500">
             <p>&copy; {{ date('Y') }} {{ \App\Facades\Setting::get('site_name') }}. {{ __('All rights reserved.') }}</p>
+        </div>
     </div>
 </footer>
 
