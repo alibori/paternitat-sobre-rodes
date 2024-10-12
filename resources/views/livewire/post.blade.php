@@ -69,7 +69,6 @@
             </div>
 
             <div class="bg-polygon mt-1 py-4">
-                <span class="bg-polygon-fill bg-white"></span>
                 {!! $post->content !!}
             </div>
         </div>
