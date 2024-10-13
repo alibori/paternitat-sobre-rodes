@@ -45,7 +45,7 @@
 <!-- ========== HEADER ========== -->
 <header class="flex flex-wrap justify-between md:justify-start md:flex-nowrap z-50 w-full py-7 bg-white border-b border-gray-200">
     <nav
-        class="relative max-w-7xl w-full flex flex-wrap justify-between md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto">
+        class="relative max-w-[90rem] w-full flex flex-wrap justify-between md:grid md:grid-cols-12 basis-full items-center px-4 md:px-8 mx-auto">
         <div class="order-1 md:col-span-3">
             <!-- Logo -->
             <a class="flex-none rounded-xl text-2xl inline-block font-logo focus:outline-none focus:opacity-80"
@@ -83,21 +83,6 @@
         </div>
         <!-- End Hamburger -->
     </nav>
-
-    <!-- Algolia -->
-    @if(config('paternitat.algolia.enabled'))
-        <div class="relative w-full mt-4 mx-4 md:mt-0 md:ml-8 md:mr-8 md:w-[300px] border border-gray-200 rounded-lg">
-          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-            <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
-            </button>
-          </span>
-            <input type="search" id="search-input" class="w-full py-2 text-sm rounded-md pl-10 focus:outline-none" placeholder="{{ __('Search') }}..." autocomplete="off">
-        </div>
-    @endif
-    <!-- End Algolia -->
 
     <!-- Mobile menu -->
     <div class="navbar-menu relative z-50 hidden">
@@ -141,9 +126,9 @@
 </main>
 
 <footer class="mt-auto w-full bg-white border-t border-gray-200">
-    <div class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="mt-auto w-full max-w-[90rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <!-- Grid -->
-        <div class="flex flex-col justify-center md:grid md:grid-cols-1 md:grid-cols-3 md:items-center gap-5">
+        <div class="flex flex-col justify-center md:grid md:grid-cols-3 md:items-center gap-5">
             <div class="h-12 w-full text-center md:text-left">
                 <!-- Logo -->
                 <a class="flex-none rounded-xl text-lg inline-block font-logo focus:outline-none focus:opacity-80"
@@ -155,21 +140,11 @@
             <!-- End Col -->
 
             <ul class="text-center flex flex-col md:flex-row">
-                <li class="inline-block relative pe-8 md:last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 md:before:content-['/'] md:before:text-gray-300">
-                    <a class="inline-flex gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800" href="{{ route('about') }}">
-                        {{ __('About me') }}
-                    </a>
-                </li>
-                <li class="inline-block relative pe-8 md:last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 md:before:content-['/'] md:before:text-gray-300">
-                    <a class="inline-flex gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800" href="{{ route('blog.index') }}">
-                        {{ __('Blog') }}
-                    </a>
-                </li>
-                <li class="inline-block relative pe-8 md:last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 md:before:content-['/'] md:before:text-gray-300">
-                    <a class="inline-flex gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800" href="{{ route('contact') }}">
-                        {{ __('Contact me') }}
-                    </a>
-                </li>
+                @foreach(\App\Facades\Menu::get('Footer Menu') as $menu_item)
+                    <li class="md:inline-block md:relative md:pe-8 md:last:pe-0 md:last-of-type:before:hidden md:before:absolute md:before:top-1/2 md:before:end-3 md:before:-translate-y-1/2 md:before:content-['/'] md:before:text-gray-300">
+                        <a class="inline-flex gap-x-2 text-sm text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800" href="{{ url($menu_item['url']) }}">{{ $menu_item['name'] }}</a>
+                    </li>
+                @endforeach
             </ul>
             <!-- End Col -->
 
