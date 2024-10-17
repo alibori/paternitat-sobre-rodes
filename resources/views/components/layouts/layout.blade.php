@@ -84,6 +84,21 @@
         <!-- End Hamburger -->
     </nav>
 
+    <!-- Algolia -->
+    @if(config('paternitat.algolia.enabled'))
+        <div class="relative w-full mt-4 mx-4 md:mt-0 md:ml-8 md:mr-8 md:w-[300px] border border-gray-200 rounded-lg">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+            <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+          </span>
+            <input type="search" id="search-input" class="w-full py-2 text-sm rounded-md pl-10 focus:outline-none" placeholder="{{ __('Search') }}..." autocomplete="off">
+        </div>
+    @endif
+    <!-- End Algolia -->
+
     <!-- Mobile menu -->
     <div class="navbar-menu relative z-50 hidden">
         <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
