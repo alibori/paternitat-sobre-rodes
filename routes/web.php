@@ -17,3 +17,5 @@ Route::prefix('blog')->group(function (): void {
 });
 
 Route::get('/contacte', Contact::class)->name('contact');
+
+Route::fallback(fn () => view('errors.404'));
