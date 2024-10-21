@@ -37,6 +37,7 @@ class PostResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->label(__('Author'))
                     ->relationship('user', 'name')
+                    ->default(auth()->id())
                     ->required(),
                 Forms\Components\Select::make('category_id')
                     ->label(__('Category'))
@@ -84,6 +85,7 @@ class PostResource extends Resource
                 Forms\Components\Select::make('status')
                     ->label(__('Status'))
                     ->options(PostStatusEnum::class)
+                    ->default(PostStatusEnum::Draft)
                     ->required(),
                 Forms\Components\Hidden::make('is_slug_changed_manually')
                     ->default(false)
