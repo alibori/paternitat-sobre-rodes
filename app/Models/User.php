@@ -67,8 +67,10 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        // TODO: Implement canAccessPanel() method in a secure way.
-        // return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
+        if (app()->isProduction()) {
+            return $this->hasPermissionTo('access panel');
+        }
+
         return true;
     }
 }

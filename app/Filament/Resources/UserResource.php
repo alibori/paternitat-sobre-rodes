@@ -65,6 +65,18 @@ class UserResource extends Resource
                     ->label(__('Email'))
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('roles.name')
+                    ->label(__('Roles'))
+                    ->listWithLineBreaks()
+                    ->badge()
+                    ->color(function ($record) {
+                        return match ($record->roles?->first()->name) {
+                            'super-admin' => 'success',
+                            'moderator' => 'warning',
+                            'writer' => 'info',
+                            default => 'gray',
+                        };
+                    }),
             ])
             ->filters([
 
