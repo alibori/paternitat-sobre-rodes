@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Seeders\Data\MenusTableSeeder;
+use Database\Seeders\Data\RolesAndPermissionsSeeder;
 use Database\Seeders\Data\SettingsTableSeeder;
 use Database\Seeders\Mock\CategoriesTableSeeder;
 use Database\Seeders\Mock\PostsTableSeeder;
+use Database\Seeders\Mock\UsersTableSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,17 +22,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SettingsTableSeeder::class,
-            MenusTableSeeder::class
+            MenusTableSeeder::class,
+            RolesAndPermissionsSeeder::class,
         ]);
 
         // Mock data - only in development
         if ( ! app()->isProduction()) {
-            User::factory()->create([
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-            ]);
-
             $this->call([
+                UsersTableSeeder::class,
                 CategoriesTableSeeder::class,
                 PostsTableSeeder::class,
             ]);

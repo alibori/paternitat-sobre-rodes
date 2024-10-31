@@ -18,7 +18,7 @@
     "Hello!": "Hola!",
     "Send": "Enviar",
     "I'll get back to you as soon as possible.": "Em posaré en contacte amb tu tan aviat com sigui possible.",
-    "Success!": "Exit!",
+    "Success!": "Èxit!",
     "Message sent successfully. I will contact you as soon as possible!": "Missatge enviat correctament. Em posaré en contacte amb tu tan aviat com sigui possible!",
     "Contact Form Submission": "Nou missatge de contacte",
     "You have received a new contact form submission. Here are the details:": "Has rebut un nou missatge de contacte. Aquí tens els detalls:",
@@ -69,5 +69,15 @@
     "All rights reserved.": "Tots els drets reservats.",
 
     "You seem lost daddy...": "Sembla que t'has perdut papi...",
-    "You might be interested in this:": "Potser et pot interessar això:"
+    "You might be interested in this:": "Potser et pot interessar això:",
+
+    "Role": "Rol",
+    "Roles": "Rols",
+    "Permissions": "Permisos",
+    "Permission": "Permís",
+    "Name": "Nom",
+    "Guard Name": "Guardia",
+
+    "User": "Usuari",
+    "Users": "Usuaris"
 }

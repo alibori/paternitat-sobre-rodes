@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @mixin IdeHelperUser
@@ -19,6 +20,7 @@ class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
+    use HasRoles;
     use Notifiable;
 
     /**
@@ -65,8 +67,10 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        // TODO: Implement canAccessPanel() method in a secure way.
-        // return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
+        if (app()->isProduction()) {
+            return $this->hasPermissionTo('access panel');
+        }
+
         return true;
     }
 }
