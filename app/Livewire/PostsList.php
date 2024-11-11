@@ -21,8 +21,8 @@ class PostsList extends Component
     {
         return view('livewire.posts-list', [
             'posts' => $this->last
-            ? app(ListPublishedPostsAction::class)->execute(['category'], [], ['created_at' => 'desc'], false, null, 3)
-            : app(ListPublishedPostsAction::class)->execute(['category'], [], ['created_at' => 'desc'])
+            ? app(ListPublishedPostsAction::class)->execute(['category'], [], ['published_at' => 'desc'], false, null, 3)
+            : app(ListPublishedPostsAction::class)->execute(['category'], [], ['published_at' => 'desc'])
         ]);
     }
 }

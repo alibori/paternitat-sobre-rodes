@@ -42,6 +42,14 @@ class BlogPostsOverview extends StatsOverviewWidget
                     ->count(),
             )->color('success'),
             StatsOverviewWidget\Stat::make(
+                label: __('Scheduled posts'),
+                value: Post::query()
+                    ->when($startDate, fn (Builder $query) => $query->whereDate('created_at', '>=', $startDate))
+                    ->when($endDate, fn (Builder $query) => $query->whereDate('created_at', '<=', $endDate))
+                    ->where('status', PostStatusEnum::Scheduled->value)
+                    ->count(),
+            )->color('info'),
+            StatsOverviewWidget\Stat::make(
                 label: __('Draft posts'),
                 value: Post::query()
                     ->when($startDate, fn (Builder $query) => $query->whereDate('created_at', '>=', $startDate))
