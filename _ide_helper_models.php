@@ -42,6 +42,53 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * Class Menu
+ *
+ * @property int $id
+ * @property string $name
+ * @property Collection|MenuItem[] $menu_items
+ * @package App\Models
+ * @property-read int|null $menu_items_count
+ * @method static \Database\Factories\MenuFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperMenu {}
+}
+
+namespace App\Models{
+/**
+ * Class MenuItem
+ *
+ * @property int $id
+ * @property int $menu_id
+ * @property string $name
+ * @property string $url
+ * @property int $order
+ * @property Menu $menu
+ * @package App\Models
+ * @method static \Database\Factories\MenuItemFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereMenuId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereUrl($value)
+ * @mixin \Eloquent
+ */
+	#[\AllowDynamicProperties]
+	class IdeHelperMenuItem {}
+}
+
+namespace App\Models{
+/**
  * Class Metadata
  *
  * @property int $id
@@ -108,6 +155,8 @@ namespace App\Models{
  * @property string $excerpt
  * @property string $content
  * @property string $status
+ * @property Carbon|null $publish_on
+ * @property Carbon|null $published_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property User $user
@@ -130,6 +179,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereExcerpt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereLike($column, $value, $boolean = 'and')
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePublishOn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post wherePublishedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
@@ -180,12 +231,18 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissions
+ * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Post> $posts
  * @property-read int|null $posts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Role> $roles
+ * @property-read int|null $roles_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|User permission($permissions, $without = false)
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User role($roles, $guard = null, $without = false)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
@@ -194,6 +251,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|User withoutRole($roles, $guard = null)
  * @mixin \Eloquent
  */
 	#[\AllowDynamicProperties]

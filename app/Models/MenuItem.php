@@ -21,10 +21,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $name
  * @property string $url
  * @property int $order
- *
  * @property Menu $menu
- *
  * @package App\Models
+ * @mixin IdeHelperMenuItem
  */
 class MenuItem extends Model
 {

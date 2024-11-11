@@ -12,6 +12,7 @@ test('renders successfully', function (): void {
     $post = PostFactory::new()->create([
         'user_id' => $user->id,
         'status' => PostStatusEnum::Published->value,
+        'published_at' => now(),
     ]);
 
     Livewire::test(App\Livewire\Post::class, ['slug' => $post->slug])

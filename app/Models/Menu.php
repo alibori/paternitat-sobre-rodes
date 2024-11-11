@@ -19,10 +19,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @property int $id
  * @property string $name
- *
  * @property Collection|MenuItem[] $menu_items
- *
  * @package App\Models
+ * @mixin IdeHelperMenu
  */
 class Menu extends Model
 {

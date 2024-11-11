@@ -31,7 +31,7 @@
 
                             <ul class="text-s text-gray-500">
                                 <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
-                                    {{ $post->created_at->translatedFormat('d M, Y') }}
+                                    {{ $post->published_at->translatedFormat('d M, Y') }}
                                 </li>
                                 <li class="inline-block relative pe-6 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full">
                                     {{ \Illuminate\Support\Str::readDuration($post->content) }} {{ __('min read') }}

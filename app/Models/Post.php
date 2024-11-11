@@ -30,6 +30,8 @@ use Laravel\Scout\Searchable;
  * @property string $excerpt
  * @property string $content
  * @property string $status
+ * @property Carbon|null $publish_on
+ * @property Carbon|null $published_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property User $user
@@ -52,6 +54,8 @@ class Post extends Model
         'user_id' => 'int',
         'category_id' => 'int',
         'status' => PostStatusEnum::class,
+        'publish_on' => 'datetime',
+        'published_at' => 'datetime',
     ];
 
     protected $fillable = [
@@ -61,7 +65,9 @@ class Post extends Model
         'slug',
         'excerpt',
         'content',
-        'status'
+        'status',
+        'publish_on',
+        'published_at',
     ];
 
     /**

@@ -28,6 +28,8 @@ final class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $status = fake()->randomElement(['draft', 'reviewing', 'published', 'rejected', 'scheduled']);
+
         return [
             'user_id' => User::inRandomOrder()->first(),
             'category_id' => Category::inRandomOrder()->first(),
@@ -35,7 +37,9 @@ final class PostFactory extends Factory
             'slug' => fake()->unique()->slug,
             'excerpt' => fake()->sentence,
             'content' => fake()->text,
-            'status' => fake()->randomElement(['draft', 'reviewing', 'published', 'rejected']),
+            'status' => $status,
+            'publish_on' => 'scheduled' === $status ? fake()->dateTimeBetween('now', '+3 months') : null,
+            'published_at' => 'published' === $status ? fake()->dateTimeBetween('-1 year', 'now') : null,
         ];
     }
 }

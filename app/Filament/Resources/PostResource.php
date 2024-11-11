@@ -87,6 +87,13 @@ class PostResource extends Resource
                     ->options(PostStatusEnum::class)
                     ->default(PostStatusEnum::Draft)
                     ->required(),
+                Forms\Components\DatePicker::make('publish_on')
+                    ->label(__('Publish on'))
+                    ->nullable()
+                    ->hidden(fn (Forms\Get $get): bool => $get('status') !== PostStatusEnum::Scheduled->value),
+                Forms\Components\DatePicker::make('published_at')
+                    ->label(__('Published at'))
+                    ->nullable(),
                 Forms\Components\Hidden::make('is_slug_changed_manually')
                     ->default(false)
                     ->dehydrated(false),

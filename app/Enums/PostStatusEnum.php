@@ -15,6 +15,7 @@ enum PostStatusEnum: string implements HasLabel, HasDescription, HasColor, HasIc
     case Reviewing = 'reviewing';
     case Published = 'published';
     case Rejected = 'rejected';
+    case Scheduled = 'scheduled';
 
     public function getLabel(): ?string
     {
@@ -23,6 +24,7 @@ enum PostStatusEnum: string implements HasLabel, HasDescription, HasColor, HasIc
             self::Reviewing => __('Reviewing'),
             self::Published => __('Published'),
             self::Rejected => __('Rejected'),
+            self::Scheduled => __('Scheduled'),
         };
     }
 
@@ -33,6 +35,7 @@ enum PostStatusEnum: string implements HasLabel, HasDescription, HasColor, HasIc
             self::Reviewing => 'warning',
             self::Published => 'success',
             self::Rejected => 'danger',
+            self::Scheduled => 'info',
         };
     }
 
@@ -43,6 +46,7 @@ enum PostStatusEnum: string implements HasLabel, HasDescription, HasColor, HasIc
             self::Reviewing => 'heroicon-m-eye',
             self::Published => 'heroicon-m-check',
             self::Rejected => 'heroicon-m-x-mark',
+            self::Scheduled => 'heroicon-m-clock',
         };
     }
 
@@ -53,6 +57,7 @@ enum PostStatusEnum: string implements HasLabel, HasDescription, HasColor, HasIc
             self::Reviewing => __('This is ready for a staff member to read.'),
             self::Published => __('This has been approved by a staff member and is public on the website.'),
             self::Rejected => __('A staff member has decided this is not appropriate for the website.'),
+            self::Scheduled => __('This will be published at a later date.'),
         };
     }
 }
