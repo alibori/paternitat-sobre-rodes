@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Actions\Scheduler\PublishScheduledPostsAction;
 use App\Enums\PostStatusEnum;
 use Database\Factories\PostFactory;
